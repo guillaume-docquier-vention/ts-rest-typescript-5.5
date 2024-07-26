@@ -22,3 +22,6 @@ Found 1 error in src/ts-rest.ts:48
 ```
 
 But we would expect to find 3 errors instead, on lines 46, 47 and 48
+
+# Thoughts
+If it is meant to work on TS 5.5, maybe it's a wrong tsconfig? I use [tsconfig/bases/node22](https://github.com/tsconfig/bases/blob/main/bases/node22.json) which I copy pasted here for clarity.
