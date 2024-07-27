@@ -5,6 +5,9 @@
     "sourceMap": true,
 
     "lib": ["es2023"],
+    // Adding "dom" is the solution
+    // "lib": ["es2023", "dom"],
+
     "module": "node16",
     "target": "es2022",
 

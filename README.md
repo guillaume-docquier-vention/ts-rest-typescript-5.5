@@ -25,3 +25,7 @@ But we would expect to find 3 errors instead, on lines 46, 47 and 48
 
 # Thoughts
 If it is meant to work on TS 5.5, maybe it's a wrong tsconfig? I use [tsconfig/bases/node22](https://github.com/tsconfig/bases/blob/main/bases/node22.json) which I copy pasted here for clarity.
+
+# The solution
+You need to include `dom` in the tsconfig `compiler.lib` option.  
+However, this is awkward for NodeJS projects that need a ts-rest client.
