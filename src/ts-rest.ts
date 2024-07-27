@@ -43,22 +43,24 @@ const client = initClient(contract, {
   baseHeaders: {},
 })
 
+// @ts-expect-error -- TS2345: Argument of type string is not assignable to parameter of type
 client.auth.login("invalid") // Problem: type of "login" is "any"
+
+// @ts-expect-error -- TS2345: Argument of type string is not assignable to parameter of type
 client.logout("invalid") // Problem: type of "logout" is "any"
-client.invalid() // As expected: TS2339: Property invalid does not exist on type
+
+// @ts-expect-error -- TS2339: Property invalid does not exist on type
+client.invalid()
 
 /**
- * The following is to showcase that fetch and AbortSignal types are included in @types/node >=20
+ * These are the types supposedly needed by ts-rest for app routes to be typed correctly
  */
-async function showcaseFetchAndAbortSignalTypes() {
-  const controller: AbortController = new AbortController();
-  const signal: AbortSignal = controller.signal;
-
-  const request: Request = new Request("https://example.org/get", { signal });
-  const response: Response = await fetch(request);
-
-  controller.abort();
-
-  const text = await response.text();
-  console.log(text);
-}
+type T1 = RequestInit;
+type T2 = RequestCredentials;
+type T3 = FormData;
+type T4 = URLSearchParams;
+type T5 = AbortSignal;
+type T6 = RequestCache;
+type T7 = Headers;
+type T8 = typeof fetch;
+type T9 = File;
